@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hypixel</title>
+<link rel="icon" href="icon.jpg" type="image/x-icon">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('background.jpeg');
+    background-color: rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.397);
+    color: rgba(255, 255, 255, 0.376);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el valor para ajustar la opacidad */
+    z-index: -1;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 36px;
+    background-color: transparent;
+    color: white;
+    border: 4px solid white;
+    cursor: pointer;
+  }
+  #imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #image {
+    size: 10px;
+  }
+  #message {
+    display: none;
+    text-align: center;
+    font-size: 66px;
+    font-weight: bold;
+    margin-top: 30px;
+    opacity: 100%;
+  }
+</style>
+</head>
+<body>
+<div id="imageContainer">
+  <img id="image" src="LogoHypixel.png" alt="Imagen">
+  <button id="loginButton">INICIAR SESIÓN</button>
+</div>
+<div id="message">¡HAZ SIDO HACKEADO!</div>
+<audio id="backgroundMusic" loop>
+  <source src="OST.mp3" type="audio/mpeg">
+  Tu navegador no soporta la reproducción de audio.
+</audio>
+<script>
+  const imageContainer = document.getElementById("imageContainer");
+  const loginButton = document.getElementById("loginButton");
+  const message = document.getElementById("message");
+  const backgroundMusic = document.getElementById("backgroundMusic");
+
+  loginButton.addEventListener("click", () => {
+    imageContainer.style.display = "none";
+    message.style.display = "block";
+    backgroundMusic.play();
+
+    // Crear la ventana emergente
+    const popup = window.open("", "popupWindow", "width=1500,height=50");
+    popup.document.write("<h2>TUS DATOS PUBLICOS/PRIVADOS SE HAN PUBLICADO Y ROBADO.</h2>");
+  });
+</script>
+</body>
+</html>
